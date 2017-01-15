@@ -1,0 +1,22 @@
+{
+  "name": "javascript-calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "browser-sync start --server --files \"app, *.html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukawski/javascript-calc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukawski/javascript-calc/issues"
+  },
+  "homepage": "https://github.com/lukawski/javascript-calc#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.6"
+  }
+}
