@@ -20,17 +20,37 @@ document.addEventListener('DOMContentLoaded', function () {
     mult: mult
   }
 
-  var result = 0
+  var result = 1
+  var currentNum = 0
+  var currentOperation = ''
 
-  var userInput = document.getElementById('userInput')
   var resultBox = document.getElementById('result')
 
   var btns = document.getElementsByClassName('operations')
+  var digits = document.getElementsByClassName('digits')
+
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function (e) {
-      result = (this.getAttribute('data-operation') === 'equal') ? result : operations[this.getAttribute('data-operation')](Number(userInput.value), result)
-      if (this.getAttribute('data-operation') === 'equal') resultBox.innerText = result
-      else resultBox.innerText += ' ' + userInput.value + ' ' + this.innerText
+      currentOperation = this.getAttribute('data-operation')
+      if (currentOperation === 'equal') {
+        resultBox.innerText = result
+      } else if (currentOperation === 'clear') {
+        resultBox.innerText = ''
+        currentNum = 0
+        result = 1
+        currentOperation = ''
+      } else {
+        resultBox.innerText += this.innerText
+      }
+    })
+  }
+
+  for (var j = 0; j < digits.length; j++) {
+    digits[j].addEventListener('click', function (e) {
+      currentNum = Number(this.innerText)
+      if (currentOperation !== '') result = operations[currentOperation](currentNum, result)
+      else result = currentNum
+      resultBox.innerText += currentNum
     })
   }
 })
