@@ -21,10 +21,9 @@ body {
 
 .result {
   text-align: right;
-  min-height: 50px;
-  padding-right: 20px;
-  box-sizing: border-box;
   background: #669900;
+  width: 240px !important;
+  margin: 0 auto;
 }
 
 .digits-container {
